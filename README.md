@@ -1,11 +1,38 @@
-<div align="center">
+# Hamster Nova Defense (Hamster 新星防御)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A classic Missile Command style tower defense game built with React, Vite, and Tailwind CSS.
 
-  <h1>Built with AI Studio</h2>
+## 🚀 Deployment to Vercel
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+1. **Push to GitHub**: Create a new repository on GitHub and push this code.
+2. **Connect to Vercel**:
+   - Go to [Vercel](https://vercel.com).
+   - Click "Add New" -> "Project".
+   - Import your GitHub repository.
+3. **Configure Environment Variables**:
+   - In the Vercel project settings, add `GEMINI_API_KEY` if you plan to use AI features (though the core game is client-side).
+4. **Deploy**: Vercel will automatically detect the Vite setup and deploy your app.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## 🛠️ Local Development
 
-</div>
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## 🎮 How to Play
+
+- **Limited Mode**: Protect your cities and turrets. Reach 1000 points to win.
+- **Infinite Mode**: Survival mode. Play until you run out of ammo or all turrets are destroyed.
+- **Controls**: Click anywhere on the screen to launch a hamster interceptor.
+- **Tip**: Aim ahead of the falling cats!
+
+## 📝 License
+
+Apache-2.0
