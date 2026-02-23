@@ -345,7 +345,7 @@ export default function App() {
 
   // Separate effect for spawning rockets to avoid complex state logic inside update
   useEffect(() => {
-    if (gameState.status !== GameStatus.PLAYING) return;
+    if (gameState.status !== GameStatus.PLAYING || isWaveTransition) return;
     
     // Spawn first rocket immediately
     spawnRocket();
@@ -354,7 +354,7 @@ export default function App() {
       spawnRocket();
     }, ROCKET_SPAWN_INTERVAL / (1 + gameState.wave * 0.1));
     return () => clearInterval(interval);
-  }, [gameState.status, gameState.wave, spawnRocket]);
+  }, [gameState.status, gameState.wave, isWaveTransition, spawnRocket]);
 
   // Drawing
   useEffect(() => {
@@ -614,12 +614,12 @@ export default function App() {
 
         {/* Overlays */}
         <AnimatePresence>
-          {gameState.status !== GameStatus.PLAYING && (
+          {(gameState.status !== GameStatus.PLAYING || isWaveTransition) && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 flex items-center justify-center bg-warm-bg/80 rounded-2xl backdrop-blur-sm"
+              className="absolute inset-0 flex items-center justify-center bg-warm-bg/80 rounded-2xl backdrop-blur-sm z-50"
             >
               <motion.div
                 initial={{ scale: 0.9, y: 20 }}
